@@ -16,7 +16,7 @@ build --action_env=RAY_BUILD_ENV
 ###############################################################################
 build:windows --action_env=PATH
 # For --compilation_mode=dbg, consider enabling checks in the standard library as well (below).
-build --compilation_mode=opt
+build --compilation_mode=dbg
 # Using C++ 17 on all platforms.
 build:linux --host_cxxopt="-std=c++17"
 build:macos --host_cxxopt="-std=c++17"
@@ -204,6 +204,13 @@ build:debug --copt -fno-omit-frame-pointer
 build:debug --copt -fstack-protector-strong
 build:debug --copt -fcf-protection=full
 build:debug --strip="never"
+
+# Antithesis build
+build:debug --copt -O0
+build:debug --copt -fsanitize-coverage=trace-pc-guard
+build:debug --linkopt -fuse-ld=lld
+build:debug --linkopt -fsanitize-coverage=trace-pc-guard
+build:debug --linkopt -Wl,--build-id
 
 # Undefined Behavior Sanitizer
 build:ubsan --strip=never

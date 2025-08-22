@@ -147,6 +147,7 @@ ray_cc_library(
     hdrs =
         [
             "src/ray/internal/internal.h",
+            "src/antithesis_instrumentation.h",
         ],
     copts = COPTS,
     strip_include_prefix = "src",

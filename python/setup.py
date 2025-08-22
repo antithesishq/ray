@@ -586,7 +586,7 @@ def build(build_python, build_java, build_cpp):
             + runtime_env_agent_pip_packages
         )
 
-    bazel_flags = ["--verbose_failures"]
+    bazel_flags = ["--verbose_failures", "--subcommands"]
     if BAZEL_ARGS:
         bazel_flags.extend(shlex.split(BAZEL_ARGS))
 

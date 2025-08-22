@@ -23,6 +23,8 @@
 #include "src/ray/protobuf/core_worker.grpc.pb.h"
 #include "src/ray/protobuf/core_worker.pb.h"
 
+#include "antithesis_instrumentation.h"
+
 namespace ray {
 
 namespace raylet {
