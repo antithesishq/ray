@@ -112,7 +112,7 @@ refresh_compile_commands(
 ray_cc_library(
     name = "grpc_common_base",
     srcs = ["src/ray/rpc/common.cc"],
-    hdrs = ["src/ray/rpc/common.h"],
+    hdrs = ["src/ray/rpc/common.h", "src/antithesis_instrumentation.h"],
 )
 
 ray_cc_library(
