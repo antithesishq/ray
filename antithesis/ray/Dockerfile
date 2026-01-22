@@ -8,9 +8,8 @@ RUN apt-get install -y git build-essential libc6-dev libjemalloc-dev zlib1g-dev 
 RUN apt-get install -y python-is-python3 python3-pip
 RUN apt-get install -y nodejs npm
 
-RUN git clone "https://github.com/antithesishq/ray.git" /home/ray/ray
-
-# USER ray
+USER ray
+RUN git clone "https://github.com/antithesishq/ray.git" /ray
 
 # install bazelisk
 WORKDIR /home/ray/ray
